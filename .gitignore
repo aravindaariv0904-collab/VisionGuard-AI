@@ -22,3 +22,30 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+ENV/
+env/
+
+# Environment files
+.env
+
+# Local Storage static files fallback
+backend/static/original-images/*
+backend/static/heatmaps/*
+backend/static/reports/*
+backend/static/batch-images/*
+backend/static/avatars/*
+!backend/static/original-images/.gitkeep
+!backend/static/heatmaps/.gitkeep
+!backend/static/reports/.gitkeep
+!backend/static/batch-images/.gitkeep
+!backend/static/avatars/.gitkeep
+
