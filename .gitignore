@@ -49,3 +49,4 @@ backend/static/avatars/*
 !backend/static/batch-images/.gitkeep
 !backend/static/avatars/.gitkeep
 
+\n.netlify/\n
