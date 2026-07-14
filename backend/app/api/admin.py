@@ -18,10 +18,10 @@ async def get_admin_summary(admin_user: dict = Depends(check_admin_role)):
     total_users = 1 # The admin user itself
     model_versions = [
         {
-            "version": "1.0.0",
+            "version": "6630a40",
             "active": True,
-            "accuracy": 97.8,
-            "created_at": "2026-07-13T00:00:00Z"
+            "accuracy": 97.17,
+            "created_at": "2026-07-14T00:00:00Z"
         }
     ]
     

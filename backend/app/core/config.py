@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     JWT_ALGORITHM: str = "HS256"
     
     # Model configuration
-    MODEL_VERSION: str = "1.0.0"
+    MODEL_VERSION: str = "6630a40"
     ACCURACY_THRESHOLD: float = 0.5
 
     class Config:

@@ -96,6 +96,21 @@ if TORCH_AVAILABLE:
         # Modify classifier to binary class
         num_ftrs = model.classifier[1].in_features
         model.classifier[1] = nn.Linear(num_ftrs, 2)
+        
+        # Load trained weights
+        checkpoint_path = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))),
+            "ai_core", "models", "checkpoints", "efficientnet_b0_visionguard.pth"
+        )
+        if os.path.exists(checkpoint_path):
+            try:
+                model.load_state_dict(torch.load(checkpoint_path, map_location=device))
+                logger.info(f"Loaded trained model weights from: {checkpoint_path}")
+            except Exception as load_err:
+                logger.error(f"Failed to load trained model weights from {checkpoint_path}: {load_err}")
+        else:
+            logger.warning(f"Trained model checkpoint not found at: {checkpoint_path}")
+            
         model.to(device)
         model.eval()
         
@@ -146,8 +161,8 @@ def run_pytorch_prediction(image_bytes: bytes) -> tuple:
         confidence = float(probs[0][class_idx].item()) * 100
         
         # Map class index to label
-        # 0 = Real, 1 = AI Generated
-        labels = ["Real", "AI Generated"]
+        # 0 = AI Generated, 1 = Real
+        labels = ["AI Generated", "Real"]
         prediction = labels[class_idx]
         
         # Post-process CAM

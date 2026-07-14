@@ -268,5 +268,5 @@ CREATE POLICY "Admins can view audit logs" ON public.audit_logs
 -- 6. Insert Seed Data
 ---------------------------------------------------
 INSERT INTO public.model_versions (version, description, active, accuracy)
-VALUES ('1.0.0', 'Initial EfficientNet-B0 Binary Classifier', true, 97.8)
+VALUES ('6630a40', 'Trained EfficientNet-B0 Model', true, 97.17)
 ON CONFLICT (version) DO NOTHING;
